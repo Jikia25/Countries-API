@@ -1,0 +1,16 @@
+@use "../abstracts" as *;
+@use "../utilities" as *;
+
+.card-wrapper {
+  @include flex;
+  @include justify-csb;
+  @include align-items-c;
+  @include flex-wrap;
+  .card {
+    width: $cardWidth;
+    background-color: $bgColor;
+    img {
+      width: 100%;
+    }
+  }
+}

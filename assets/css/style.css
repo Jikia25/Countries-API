@@ -58,6 +58,40 @@ table {
   border-spacing: 0;
 }
 
+@font-face {
+  font-family: integralcf-bold;
+  src: url(../fonts/Fontspring-DEMO-integralcf-bold.otf);
+}
+body {
+  background-color: #f5f5f5;
+  color: #1a1a1a;
+  font-family: sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark {
+  background-color: rgba(26, 19, 50, 0.7607843137);
+  color: #f5f5f5;
+}
+body.dark .card {
+  background-color: inherit;
+  color: #f5f5f5;
+  border-color: #333;
+}
+body.dark .theme-toggle {
+  background-color: none;
+  color: #fff;
+  background: none;
+  color: #000;
+  border: none;
+  z-index: 1000;
+}
+
+.cta-wrapper {
+  display: flex;
+  gap: 14px;
+}
+
 .card-wrapper {
   display: flex;
   justify-content: space-around;
@@ -65,7 +99,7 @@ table {
   background-color: rgb(42, 5, 87);
 }
 .card-wrapper .card {
-  box-shadow: 3px 3px rgb(0, 60, 255), -1em 0 0.4em olive;
+  box-shadow: 3px 3px #a7a7f0, -1em 0 0.4em olive;
   text-transform: capitalize;
   padding: 10px 0;
   width: 400px;
@@ -112,7 +146,7 @@ table {
   height: 100vh;
   position: fixed;
   inset: 0;
-  background: rgba(52, 43, 106, 0.1725490196);
+  background: rgba(57, 47, 113, 0.1725490196);
   -webkit-backdrop-filter: blur(10px);
           backdrop-filter: blur(10px);
   display: none;
@@ -124,7 +158,7 @@ table {
   box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
   border-radius: 20px;
   text-transform: capitalize;
-  text-shadow: 1px 1px 2px rgb(11, 11, 11);
+  text-shadow: box-shadow;
   font-size: 28px;
   width: 600px;
   background: inherit;
@@ -147,4 +181,79 @@ table {
   top: 30px;
   right: 30px;
   cursor: pointer;
+}
+
+header {
+  background: #a7a7f0;
+}
+header .container {
+  max-width: 1240px;
+  margin-inline: auto;
+  width: 90%;
+}
+header .container .header-inner-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  padding-block: 24px;
+}
+header .container .header-inner-wrapper .logo {
+  font-family: integralcf-bold;
+  font-size: 50px;
+  font-weight: 700;
+  text-decoration: none;
+}
+header .container .header-inner-wrapper nav ul {
+  display: flex;
+  text-transform: capitalize;
+  gap: 24px;
+  font-size: 16px;
+}
+header .container .header-inner-wrapper nav .get-data,
+header .container .header-inner-wrapper nav #continent-filter {
+  display: inline-block;
+  padding: 12px 24px;
+  color: #fff;
+  background: rgb(42, 5, 87);
+  border: 2px solid olive;
+  border-radius: 8px;
+  font-size: 18px;
+  text-decoration: none;
+  text-align: center;
+  text-shadow: 0 0 5px olive, 0 0 10px olive, 0 0 20px olive;
+  box-shadow: 0 0 5px olive, 0 0 20px olive, 0 0 30px olive;
+  transition: all 0.3s ease-in-out;
+}
+header .container .header-inner-wrapper nav .get-data:hover,
+header .container .header-inner-wrapper nav #continent-filter:hover {
+  background: olive;
+  color: #111;
+  text-shadow: none;
+  box-shadow: 0 0 10px #fff, 0 0 20px olive, 0 0 40px olive;
+}
+header .container .header-inner-wrapper form {
+  display: flex;
+  align-items: center;
+  background-color: rgb(42, 5, 87);
+  border-radius: 62px;
+  padding: 12px 0px 12px 16px;
+  gap: 12px;
+  flex-grow: 1;
+}
+header .container .header-inner-wrapper form input {
+  color: #fff;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  width: 90%;
+}
+header .container .header-inner-wrapper .cta-wrapper {
+  display: flex;
+  gap: 14px;
+}
+header .container .header-inner-wrapper .cta-wrapper .theme-toggle {
+  background: none;
+  color: #000;
+  border: none;
+  z-index: 1000;
 }/*# sourceMappingURL=style.css.map */

@@ -1,5 +1,39 @@
 @use "../abstracts" as *;
 @use "../utilities" as *;
+@font-face {
+  font-family: integralcf-bold;
+  src: url(../fonts/Fontspring-DEMO-integralcf-bold.otf);
+}
+
+body {
+  background-color: #f5f5f5;
+  color: #1a1a1a;
+  font-family: sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  
+}
+body.dark {
+  background-color: #1a1332c2;
+  color: #f5f5f5;
+  .card {
+    background-color: inherit;
+    color: #f5f5f5;
+    border-color: #333;
+  }
+  .theme-toggle {
+    background-color: none;
+    color: #fff;
+    background: none;
+    color: #000;
+    border: none;
+    z-index: 1000;
+  }
+
+}
+.cta-wrapper {
+  @include flex;
+  gap: 14px;
+}
 
 .card-wrapper {
   @include flex;
@@ -8,9 +42,7 @@
   background-color: $bgColor;
 
   .card {
-    box-shadow:
-    3px 3px rgb(0, 60, 255),
-    -1em 0 0.4em olive;
+    box-shadow: 3px 3px #a7a7f0, -1em 0 0.4em olive;
     text-transform: capitalize;
     padding: 10px 0;
     width: $cardWidth;
@@ -38,7 +70,6 @@
       border: none;
       text-decoration: underline;
       text-transform: capitalize;
-      
     }
     h2,
     p,
@@ -57,22 +88,17 @@
   height: 100vh;
   position: fixed;
   inset: 0;
-  background: #342b6a2c;
+  background: #392f712c;
   backdrop-filter: blur(10px);
   display: none;
   &.visible {
     @include flex;
   }
   .modal-content {
-    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
-      rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
-      rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset,
-      rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
-      rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
-      rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    box-shadow: $box-shadow;
     border-radius: 20px;
     text-transform: capitalize;
-    text-shadow: 1px 1px 2px rgb(11, 11, 11);
+    text-shadow: box-shadow;
     font-size: 28px;
     width: 600px;
     background: inherit;
@@ -95,5 +121,85 @@
     top: 30px;
     right: 30px;
     cursor: pointer;
+  }
+}
+
+header {
+  background: #a7a7f0;
+  .container {
+    max-width: 1240px;
+    margin-inline: auto;
+    width: 90%;
+    .header-inner-wrapper {
+      @include flex;
+      @include align-items-c;
+      gap: 40px;
+      padding-block: 24px;
+      .logo {
+        font-family: integralcf-bold;
+        font-size: 50px;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      nav {
+        ul {
+          @include flex;
+          text-transform: capitalize;
+          gap: 24px;
+          font-size: 16px;
+        }
+
+        .get-data,
+        #continent-filter {
+          display: inline-block;
+          padding: 12px 24px;
+          color: #fff;
+          background: $bgColor;
+          border: 2px solid olive;
+          border-radius: 8px;
+          font-size: 18px;
+          text-decoration: none;
+          text-align: center;
+          text-shadow: 0 0 5px olive, 0 0 10px olive, 0 0 20px olive;
+          box-shadow: 0 0 5px olive, 0 0 20px olive, 0 0 30px olive;
+          transition: all 0.3s ease-in-out;
+
+          &:hover {
+            background: olive;
+            color: #111;
+            text-shadow: none;
+            box-shadow: 0 0 10px #fff, 0 0 20px olive, 0 0 40px olive;
+          }
+        }
+      }
+
+      form {
+        @include flex;
+        @include align-items-c;
+        background-color: $bgColor;
+        border-radius: 62px;
+        padding: 12px 0px 12px 16px;
+        gap: 12px;
+        flex-grow: 1;
+        input {
+          color: #fff;
+          border: none;
+          outline: none;
+          background-color: transparent;
+          width: 90%;
+        }
+      }
+      .cta-wrapper {
+        @include flex;
+        gap: 14px;
+        .theme-toggle {
+          background: none;
+          color: #000;
+          border: none;
+          z-index: 1000;
+        }
+      }
+    }
   }
 }

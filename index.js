@@ -4,6 +4,21 @@ const wrapper = document.querySelector(".card-wrapper");
 const modalWrapper = document.querySelector(".modal-wrapper");
 const modalContent = document.querySelector(".modal-content");
 const closeModal = document.querySelector(".modal-close");
+const continentFilter = document.getElementById("continent-filter");
+continentFilter.addEventListener("change", (e) => {
+  const selectedRegion = e.target.value;
+  const url = selectedRegion
+    ? `https://restcountries.com/v3.1/${selectedRegion}`
+    : baseUrl;
+  wrapper.innerHTML = "";
+  getData(url);
+});
+const themeToggle = document.querySelector(".theme-toggle");
+
+themeToggle.addEventListener("click", () => {
+  document.body.classList.toggle("dark");
+});
+
 closeModal.addEventListener("click", () => {
   modalWrapper.classList.remove("visible");
 });
